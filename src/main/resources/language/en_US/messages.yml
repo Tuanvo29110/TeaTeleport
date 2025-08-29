@@ -10,18 +10,18 @@
 # ------------------------------------------------------
 #                  Messages Prefix
 # ------------------------------------------------------
-prefix: '&8[&#95C088TeaTeleport&8] &r'
+prefix: '&r'
 
 # ------------------------------------------------------
 #                General Messages
 # ------------------------------------------------------
 error_player_only:
   message: '&cThis command can only be used by players.'
-  sound: entity.enderman.teleport
+  sound: entity.villager.no
 
 error_permission:
   message: '&cYou don''t have permission to use this command.'
-  sound: entity.enderman.teleport
+  sound: entity.villager.no
 
 error_invalid_command:
   message: '&cInvalid command. Use &6/tt help &cfor a list of commands.'
@@ -48,7 +48,7 @@ teleport_countdown:
   sound: entity.enderman.teleport
   
 teleport_cancel: 
-  action_bar: "&cTeleport failed because you moved."
+  action_bar: "&cTeleport cancelled because you moved."
   sound: entity.villager.no
 
 # ------------------------------------------------------
@@ -62,14 +62,15 @@ location_set_usage:
   message: '&cUsage: &6/tt set <name>'
 
 location_tp:
-  message: '&#3287A9Teleported to &f%name%&7.'
+  message: '&7You have been teleported to %name%'
+  action_bar: '&7You have been teleported to %name%'
   sound: entity.enderman.teleport
 
 location_tp_usage:
   message: '&cUsage: &6/tt tp <name>'
 
 location_not_found:
-  message: '&cLocation &f%name% &cdoesn''t exist!'
+  message: '&cLocation %name% doesn''t exist!'
   sound: entity.villager.no
 
 location_list_header:
