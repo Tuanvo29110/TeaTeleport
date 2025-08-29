@@ -57,13 +57,15 @@ public class TeleportPlayerCommand extends BaseCommand {
         placeholders.put("name", locationName);
         placeholders.put("player", targetPlayer.getName());
 
-        teleportUtil.teleportAsync(targetPlayer, location);
+        teleportUtil.teleportAsync(targetPlayer, location).thenAccept(succes -> {
+            if (success) {
+                // Send message to the target player
+                messageService.sendMessage(targetPlayer, "teleport_player_target", placeholders);
 
-        // Send message to the target player
-        messageService.sendMessage(targetPlayer, "teleport_player_target", placeholders);
-
-        // Send success message to command sender
-        messageService.sendMessage(sender, "teleport_player_sender", placeholders);
+                // Send success message to command sender
+                messageService.sendMessage(sender, "teleport_player_sender", placeholders);
+            }
+        });
 
         return true;
     }

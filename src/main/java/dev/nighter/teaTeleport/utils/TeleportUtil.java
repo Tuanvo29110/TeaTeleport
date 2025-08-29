@@ -6,10 +6,10 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.Set;
-import java.util.List;
 import java.util.UUID;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -21,16 +21,18 @@ public class TeleportUtil {
         this.plugin = plugin;
     }
     
-    public void teleportAsync(Player player, Location loc) {
+    public CompletableFuture<Boolean> teleportAsync(Player player, Location loc) {
+        CompletableFuture<Boolean> result = new CompletableFuture<>();
         UUID uuid = player.getUniqueId();
         
         if (player.hasPermission("teateleport.bypass")) {
-            player.teleportAsync(loc);
-            return;
+            player.teleportAsync(loc).thenAccept(success -> result.complete(success));
+            return result;
         }
         
         if (tpPlayers.contains(uuid)) {
-            return;
+            result.complete(false);
+            return result;
         }
         
         AtomicInteger countdown = new AtomicInteger(plugin.getConfig().getInt("teleport-delay"));
@@ -38,26 +40,27 @@ public class TeleportUtil {
         boolean cancelOnMove = plugin.getConfig().getBoolean("movement-cancel.enabled");
         
         if (countdown.get() <= 0) {
-            return;
+            result.complete(false);
+            return result;
         }
         
         Location originLocation = cancelOnMove ? player.getLocation() : null;
-        
         tpPlayers.add(uuid);
         
         Scheduler.Task[] holder = new Scheduler.Task[1];
         
-        Scheduler.Task task = Scheduler.runTaskTimerAsync(() -> {
+        holder[0] = Scheduler.runTaskTimerAsync(() -> {
             if (player == null || !player.isOnline()) {
                 cleanup(uuid, holder[0]);
+                result.complete(false);
                 return;
             }
             
             if (cancelOnMove) {
                 if (!originLocation.getWorld().equals(player.getWorld()) || originLocation.distance(player.getLocation()) > maxDistance) {
                     cleanup(uuid, holder[0]);
-                    
                     plugin.getMessageService().sendMessage(player, "teleport_cancel");
+                    result.complete(false);
                     return;
                 }
             }
@@ -73,9 +76,11 @@ public class TeleportUtil {
             } else {
                 cleanup(uuid, holder[0]);
                 
-                player.teleportAsync(loc);
+                player.teleportAsync(loc).thenAccept(success -> result.complete(success));
             }
         }, 1L, 20L);
+        
+        return result;
     }
     
     private void cleanup(UUID uuid, Scheduler.Task task) {

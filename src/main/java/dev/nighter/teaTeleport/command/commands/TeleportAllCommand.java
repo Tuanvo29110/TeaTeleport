@@ -46,8 +46,11 @@ public class TeleportAllCommand extends BaseCommand {
 
         int count = 0;
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            teleportUtil.teleportAsync(onlinePlayer, location);
-            messageService.sendMessage(onlinePlayer, "teleport_all_players", placeholders);
+            teleportUtil.teleportAsync(onlinePlayer, location).thenAccept(success -> {
+                if (success) {
+                    messageService.sendMessage(onlinePlayer, "teleport_all_players", placeholders);
+                }
+            });
             count++;
         }
 

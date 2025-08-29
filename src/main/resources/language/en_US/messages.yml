@@ -10,7 +10,7 @@
 # ------------------------------------------------------
 #                  Messages Prefix
 # ------------------------------------------------------
-prefix: '&8[&#95C088&lᴛᴇᴀᴛᴇʟᴇᴘᴏʀᴛ&8] &r'
+prefix: '&8[&#95C088TeaTeleport&8] &r'
 
 # ------------------------------------------------------
 #                General Messages
@@ -30,21 +30,21 @@ help_message:
   message: |
     &8&m
     &8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    &8                 &7&#F5F5DC&lᴄᴏᴍᴍᴀɴᴅ ʟɪsᴛ
+    &8                 &7&#F5F5DC&lCommand list
     &8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    &8» &#4A7C59/ᴛᴛ sᴇᴛ &#F5F5DC<ɴᴀᴍᴇ> &#C9E4C5- sᴇᴛ ᴀ ᴛᴇʟᴇᴘᴏʀᴛ ʟᴏᴄᴀᴛɪᴏɴ  
-    &8» &#4A7C59/ᴛᴛ ᴛᴘ &#F5F5DC<ɴᴀᴍᴇ> &#C9E4C5- ᴛᴇʟᴇᴘᴏʀᴛ ᴛᴏ ᴀ ʟᴏᴄᴀᴛɪᴏɴ  
-    &8» &#4A7C59/ᴛᴛ ᴛᴘᴀʟʟ &#F5F5DC<ɴᴀᴍᴇ> &#C9E4C5- ᴛᴇʟᴇᴘᴏʀᴛ ᴀʟʟ ᴘʟᴀʏᴇʀs ᴛᴏ ᴀ ʟᴏᴄᴀᴛɪᴏɴ
-    &8» &#4A7C59/ᴛᴛ ᴛᴘᴘʟᴀʏᴇʀ &#F5F5DC<ᴘʟᴀʏᴇʀ> <ɴᴀᴍᴇ> &#C9E4C5- ᴛᴇʟᴇᴘᴏʀᴛ ᴀ sᴘᴇᴄɪғɪᴄ ᴘʟᴀʏᴇʀ ᴛᴏ ᴀ ʟᴏᴄᴀᴛɪᴏɴ
-    &8» &#4A7C59/ᴛᴛ ᴡᴏʀʟᴅᴛᴘ &#F5F5DC<ᴡᴏʀʟᴅ> <ɴᴀᴍᴇ> &#C9E4C5- ᴛᴇʟᴇᴘᴏʀᴛ ᴀʟʟ ᴘʟᴀʏᴇʀs ɪɴ ᴀ ᴡᴏʀʟᴅ ᴛᴏ ᴀ ʟᴏᴄᴀᴛɪᴏɴ
-    &8» &#4A7C59/ᴛᴛ ʟɪsᴛ &#C9E4C5- ʟɪsᴛ ᴀʟʟ ᴛᴇʟᴇᴘᴏʀᴛ ʟᴏᴄᴀᴛɪᴏɴs  
-    &8» &#4A7C59/ᴛᴛ ᴅᴇʟᴇᴛᴇ &#F5F5DC<ɴᴀᴍᴇ> &#C9E4C5- ᴅᴇʟᴇᴛᴇ ᴀ ᴛᴇʟᴇᴘᴏʀᴛ ʟᴏᴄᴀᴛɪᴏɴ  
-    &8» &#4A7C59/ᴛᴛ ʀᴇʟᴏᴀᴅ &#C9E4C5- ʀᴇʟᴏᴀᴅ ᴘʟᴜɢɪɴ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ
+    &8» &#4A7C59/tt set &#F5F5DC<name> &#C9E4C5- set a teleport location
+    &8» &#4A7C59/tt tp &#F5F5DC<name> &#C9E4C5- teleport to a location
+    &8» &#4A7C59/tt tpall &#F5F5DC<name> &#C9E4C5- teleport all players to a location
+    &8» &#4A7C59/tt tpplayer &#F5F5DC<player> <name> &#C9E4C5- teleport a specific player to a location
+    &8» &#4A7C59/tt worldtp &#F5F5DC<world> <name> &#C9E4C5- teleport all players in a world to a location
+    &8» &#4A7C59/tt list &#C9E4C5- list all teleport locations
+    &8» &#4A7C59/tt delete &#F5F5DC<name> &#C9E4C5- delete a teleport location
+    &8» &#4A7C59/tt reload &#C9E4C5- reload plugin configuration
     &8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   sound: entity.player.levelup
   
 teleport_countdown: 
-  action_bar: "&cTeleporting in &#ffdd36%time%s"
+  action_bar: "&7Teleporting in &#ffdd36%time%s"
   sound: entity.enderman.teleport
   
 teleport_cancel: 

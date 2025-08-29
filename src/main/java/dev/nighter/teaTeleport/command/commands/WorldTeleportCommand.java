@@ -58,8 +58,11 @@ public class WorldTeleportCommand extends BaseCommand {
         int count = 0;
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
             if (onlinePlayer.getWorld().equals(world)) {
-                onlinePlayer.teleportAsync(location);
-                messageService.sendMessage(onlinePlayer, "world_teleport_players", placeholders);
+                teleportUtil.teleportAsync(onlinePlayer, location).thenAccept(success -> {
+                    if (success) {
+                        messageService.sendMessage(onlinePlayer, "world_teleport_players", placeholders);
+                    }
+                });
                 count++;
             }
         }

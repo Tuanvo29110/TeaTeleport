@@ -44,12 +44,14 @@ public class TeleportCommand extends BaseCommand {
         }
 
         // Teleport the player
-        teleportUtil.teleportAsync(player, location);
-
-        // Send success message
-        Map<String, String> placeholders = new HashMap<>();
-        placeholders.put("name", locationName);
-        messageService.sendMessage(player, "location_tp", placeholders);
+        teleportUtil.teleportAsync(player, location).thenAccept(success -> {
+            if (success) {
+                // Send success message
+                Map<String, String> placeholders = new HashMap<>();
+                placeholders.put("name", locationName);
+                messageService.sendMessage(player, "location_tp", placeholders);
+            }
+        });
 
         return true;
     }
