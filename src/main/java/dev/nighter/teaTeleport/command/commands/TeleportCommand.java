@@ -44,7 +44,7 @@ public class TeleportCommand extends BaseCommand {
         }
 
         // Teleport the player
-        player.teleportAsync(location);
+        teleportUtil.teleportAsync(player, location);
 
         // Send success message
         Map<String, String> placeholders = new HashMap<>();
