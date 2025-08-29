@@ -49,7 +49,7 @@ public class TeleportUtil {
             }
             
             if (cancelOnMove) {
-                if (!originLocation.getWorld().equals(player.getWorld()) || originLocation.distance(player.getLocation()) > maxDistance {
+                if (!originLocation.getWorld().equals(player.getWorld()) || originLocation.distance(player.getLocation()) > maxDistance) {
                     cleanup(uuid, holder[0]);
                     
                     plugin.getMessageService().sendMessage(player, "teleport_cancel");
