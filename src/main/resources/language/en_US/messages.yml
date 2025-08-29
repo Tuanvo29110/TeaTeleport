@@ -42,6 +42,14 @@ help_message:
     &8» &#4A7C59/ᴛᴛ ʀᴇʟᴏᴀᴅ &#C9E4C5- ʀᴇʟᴏᴀᴅ ᴘʟᴜɢɪɴ ᴄᴏɴꜰɪɢᴜʀᴀᴛɪᴏɴ
     &8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   sound: entity.player.levelup
+  
+teleport_countdown: 
+  action_bar: "&cTeleporting in &#ffdd36%time%s"
+  sound: entity.enderman.teleport
+  
+teleport_cancel: 
+  action_bar: "&cTeleport failed because you moved."
+  sound: entity.villager.no
 
 # ------------------------------------------------------
 #             Location Commands

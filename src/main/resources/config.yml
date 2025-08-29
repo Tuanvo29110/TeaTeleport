@@ -1,1 +1,7 @@
 language: en_US
+
+teleport-delay: 5   # Time in seconds before teleport (set to 0 to disable)
+
+movement-cancel:
+  enabled: false      # Enable/disable cancelling teleport when moving
+  max-distance: 0.5   # Maximum movement distance (in blocks) allowed during countdown

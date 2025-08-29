@@ -6,6 +6,7 @@ import dev.nighter.teaTeleport.language.MessageService;
 import dev.nighter.teaTeleport.storage.LocationManager;
 import dev.nighter.teaTeleport.updates.ConfigUpdater;
 import dev.nighter.teaTeleport.updates.LanguageUpdater;
+import dev.nighter.teaTeleport.utils.TeleportUtil;
 import lombok.Getter;
 import lombok.experimental.Accessors;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,6 +20,7 @@ public final class TeaTeleport extends JavaPlugin {
     private MessageService messageService;
     private LocationManager locationManager;
     private CommandManager commandManager;
+    private TeleportUtil teleportUtil;
 
     @Getter
     private static TeaTeleport instance;
@@ -39,6 +41,8 @@ public final class TeaTeleport extends JavaPlugin {
 
         // Initialize location manager
         locationManager = new LocationManager(this);
+        
+        teleportUtil = new TeleportUtil(this);        
 
         // Register commands and tab completer
         commandManager = new CommandManager(this);
