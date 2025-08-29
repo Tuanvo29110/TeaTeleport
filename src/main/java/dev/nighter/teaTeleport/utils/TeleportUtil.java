@@ -24,6 +24,11 @@ public class TeleportUtil {
     public void teleportAsync(Player player, Location loc) {
         UUID uuid = player.getUniqueId();
         
+        if (player.hasPermission("teateleport.bypass")) {
+            player.teleportAsync(loc);
+            return;
+        }
+        
         if (tpPlayers.contains(uuid)) {
             return;
         }

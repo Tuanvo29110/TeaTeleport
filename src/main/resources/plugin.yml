@@ -38,6 +38,9 @@ permissions:
   teateleport.delete:
     description: Allows deleting teleport locations
     default: op
+  teateleport.bypass:
+    description: Allows bypassing teleport delay
+    default: op
   teateleport.reload:
     description: Allows reloading the plugin configuration
     default: op
@@ -53,4 +56,5 @@ permissions:
       teateleport.worldtp: true
       teateleport.list: true
       teateleport.delete: true
+      teateleport.bypass: true
       teateleport.reload: true
