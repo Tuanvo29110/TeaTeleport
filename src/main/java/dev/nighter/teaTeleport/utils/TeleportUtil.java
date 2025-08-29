@@ -38,7 +38,7 @@ public class TeleportUtil {
         
         Location originLocation = cancelOnMove ? player.getLocation() : null;
         
-        tpPlayers.ad(uuid);
+        tpPlayers.add(uuid);
         
         Scheduler.Task[] holder = new Scheduler.Task[1];
         
