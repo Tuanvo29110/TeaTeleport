@@ -18,6 +18,8 @@ public class ReloadCommand extends BaseCommand {
         if (!checkSender(sender)) {
             return true;
         }
+        
+        plugin.reloadConfig();
 
         // Reload language files
         plugin.getLanguageManager().reloadLanguages();

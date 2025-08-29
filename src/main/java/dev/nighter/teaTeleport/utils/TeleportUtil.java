@@ -40,7 +40,7 @@ public class TeleportUtil {
         boolean cancelOnMove = plugin.getConfig().getBoolean("movement-cancel.enabled");
         
         if (countdown.get() <= 0) {
-            result.complete(false);
+            player.teleportAsync(loc).thenAccept(success -> result.complete(success));
             return result;
         }
         
