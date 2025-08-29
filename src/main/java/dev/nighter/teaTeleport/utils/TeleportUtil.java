@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class TeleportUtil {
-    private final Main plugin;
+    private final TeaTeleport plugin;
     private final Set<UUID> tpPlayers = ConcurrentHashMap.newKeySet();
 
     public TeleportUtil(TeaTeleport plugin) {
