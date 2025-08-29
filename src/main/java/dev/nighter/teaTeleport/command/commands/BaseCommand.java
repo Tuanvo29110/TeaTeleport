@@ -2,6 +2,7 @@ package dev.nighter.teaTeleport.command.commands;
 
 import dev.nighter.teaTeleport.TeaTeleport;
 import dev.nighter.teaTeleport.language.MessageService;
+import dev.nighter.teaTeleport.utils.TeleportUtil;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -11,10 +12,12 @@ import java.util.List;
 public abstract class BaseCommand {
     protected final TeaTeleport plugin;
     protected final MessageService messageService;
+    protected final TeleportUtil teleportUtil;
 
     public BaseCommand(TeaTeleport plugin) {
         this.plugin = plugin;
         this.messageService = plugin.getMessageService();
+        this.teleportUtil = plugin.getTeleportUtil();
     }
 
     /**
