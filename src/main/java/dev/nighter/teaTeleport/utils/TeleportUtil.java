@@ -24,7 +24,7 @@ public class TeleportUtil {
     public void teleportAsync(Player player, Location loc) {
         UUID uuid = player.getUniqueId();
         
-        if (tpPlayers.containsKey(uuid)) {
+        if (tpPlayers.contains(uuid)) {
             return;
         }
         
@@ -38,12 +38,12 @@ public class TeleportUtil {
         
         Location originLocation = cancelOnMove ? player.getLocation() : null;
         
-        tpPlayers.put(uuid);
+        tpPlayers.ad(uuid);
         
         Scheduler.Task[] holder = new Scheduler.Task[1];
         
         Scheduler.Task task = Scheduler.runTaskTimerAsync(() -> {
-            if (player == null || !player.isOnline) {
+            if (player == null || !player.isOnline()) {
                 cleanup(uuid, holder[0]);
                 return;
             }
